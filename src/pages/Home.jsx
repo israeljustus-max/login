@@ -7,7 +7,7 @@ export default function Home() {
       <div className="hero-copy"><p className="eyebrow"><span className="eyebrow-line" /> BEM-VINDO À SCHWARTZ DEV</p>
         <h1>Transformando ideias em <span>soluções digitais</span></h1>
         <p className="lead">A SCHWARTZ DEV conecta desenvolvimento web, sistemas personalizados e inteligência artificial para transformar ideias em experiências digitais claras e funcionais.</p>
-        <a className="button" href="#servicos">Conheça nossos serviços <ArrowRight size={18} aria-hidden="true" /></a>
+        <a className="button" href="#servicos" onClick={event => { event.preventDefault(); const section = document.getElementById('servicos'); section?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); section?.focus({ preventScroll: true }); }}>Conheça nossos serviços <ArrowRight size={18} aria-hidden="true" /></a>
         <p className="hero-footnote">CLAREZA NO DESIGN. CUIDADO EM CADA DETALHE.</p>
       </div>
       <div className="code-visual" aria-hidden="true">
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </div>
     </section>
-    <section className="container services-section" id="servicos" aria-labelledby="services-title">
+    <section className="container services-section" id="servicos" tabIndex={-1} aria-labelledby="services-title">
       <p className="eyebrow">DO CONCEITO À SOLUÇÃO</p><h2 id="services-title" className="section-title">Tecnologia para sua próxima ideia.</h2>
       <div className="service-grid">{services.map(service => <ServiceCard key={service.id} item={service} />)}</div>
     </section>
