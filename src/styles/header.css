@@ -1,0 +1,25 @@
+.identity-band { background: var(--navy); color: white; }
+.identity-inner { min-height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 16px; color: white; font-size: 23px; font-weight: 800; letter-spacing: .055em; text-decoration: none; }
+.brand-icon { display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid #45536b; border-radius: 12px; background: #1d2b43; color: #80aaff; }
+.brand-accent { color: #80aaff; }
+.brand-caption { color: #acb8cc; font-size: 10px; letter-spacing: .18em; }
+@media (max-width: 600px) { .identity-inner { min-height: 86px; } .brand { font-size: 18px; gap: 12px; } .brand-caption { display: none; } .brand-icon { width: 44px; height: 44px; } }
+
+.navigation-band { background: var(--surface); border-bottom: 1px solid var(--border); }
+.navigation-inner { display: flex; justify-content: space-between; align-items: center; }
+.nav-list { display: flex; gap: 32px; list-style: none; padding: 0; margin: 0; }
+.nav-list a { display: block; padding: 20px 4px; color: var(--muted); text-decoration: none; border-bottom: 3px solid transparent; font-size: 14px; font-weight: 600; transition: color .2s, border-color .2s; }
+.nav-list a:hover, .nav-list a.active { color: var(--primary); border-color: var(--primary); }
+.nav-detail { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 9px; letter-spacing: .12em; }
+.nav-detail span { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+.menu-toggle { display: none; }
+@media (max-width: 760px) {
+  .nav-detail { display: none; }
+  .navigation-inner { display: block; }
+  .menu-toggle { display: flex; align-items: center; gap: 10px; padding: 17px 0; border: 0; background: transparent; color: var(--text); font: inherit; cursor: pointer; }
+  .nav-list { display: none; padding-bottom: 14px; }
+  .nav-list.is-open { display: flex; flex-direction: column; gap: 2px; }
+  .nav-list a { padding: 12px; border-bottom: 0; border-left: 3px solid transparent; }
+  .nav-list a.active { border-left-color: var(--primary); background: var(--soft-blue); }
+}
