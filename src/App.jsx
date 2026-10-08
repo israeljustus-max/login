@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -16,5 +16,5 @@ export default function App() {
     if (previousPath.current !== pathname) { document.querySelector('main')?.focus(); window.scrollTo(0, 0); }
     previousPath.current = pathname;
   }, [pathname]);
-  return <><a className="skip-link" href="#main-content">Pular para o conteúdo</a><Header /><main id="main-content" tabIndex={-1}><Routes><Route path="/" element={<Home />} /><Route path="/sobre" element={<Sobre />} /><Route path="/pesquisa" element={<Pesquisa />} /><Route path="/cadastro" element={<Cadastro />} /><Route path="/login" element={<Login />} /><Route path="*" element={<section className="container page-section"><p className="eyebrow">404</p><h1>Página não encontrada.</h1><Link className="button" to="/">Voltar para Home</Link></section>} /></Routes></main><Footer /></>;
+  return <><a className="skip-link" href="#main-content">Pular para o conteúdo</a><Header /><main id="main-content" tabIndex={-1}><Routes><Route path="/index.html" element={<Navigate to="/" replace />} /><Route path="/" element={<Home />} /><Route path="/sobre" element={<Sobre />} /><Route path="/pesquisa" element={<Pesquisa />} /><Route path="/cadastro" element={<Cadastro />} /><Route path="/login" element={<Login />} /><Route path="*" element={<section className="container page-section"><p className="eyebrow">404</p><h1>Página não encontrada.</h1><Link className="button" to="/">Voltar para Home</Link></section>} /></Routes></main><Footer /></>;
 }
